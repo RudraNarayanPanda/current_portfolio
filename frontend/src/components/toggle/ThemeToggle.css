@@ -1,0 +1,568 @@
+/* =========================================
+   THEME TOGGLE
+========================================= */
+/* 
+.theme-toggle {
+  position: relative;
+
+  width: 78px;
+  height: 42px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  outline: none;
+
+  flex-shrink: 0;
+
+  -webkit-tap-highlight-color: transparent;
+} */
+
+
+/* =========================================
+   TRACK
+========================================= */
+/* 
+.toggle-track {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      110deg,
+      #020812,
+      #080b19 45%,
+      #120617
+    );
+
+  border:
+    1px solid rgba(0, 246, 255, 0.55);
+
+  box-shadow:
+    0 0 8px rgba(0, 246, 255, 0.18),
+    inset 0 0 15px rgba(0, 246, 255, 0.05);
+
+  transition:
+    background 0.8s ease,
+    border-color 0.8s ease,
+    box-shadow 0.8s ease;
+} */
+
+
+/* =========================================
+   LIGHT TRACK
+========================================= */
+/* 
+.is-light .toggle-track {
+  background:
+    linear-gradient(
+      110deg,
+      #e9faff,
+      #ffffff 50%,
+      #fff4d5
+    );
+
+  border-color:
+    rgba(0, 160, 190, 0.55);
+
+  box-shadow:
+    0 0 10px rgba(0, 190, 220, 0.18),
+    inset 0 0 15px rgba(255, 180, 0, 0.08);
+} */
+
+
+/* =========================================
+   CELESTIAL OBJECT
+========================================= */
+
+/* .celestial {
+  position: absolute;
+
+  top: 7px;
+  left: 7px;
+
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 5;
+
+  transition:
+    transform 1s cubic-bezier(
+      0.68,
+      -0.25,
+      0.265,
+      1.35
+    );
+} */
+
+
+/* DARK */
+
+/* .is-dark .celestial {
+  transform:
+    translateX(0)
+    rotate(0deg);
+} */
+
+
+/* LIGHT */
+
+/* .is-light .celestial {
+  transform:
+    translateX(36px)
+    rotate(360deg);
+} */
+
+
+/* =========================================
+   MOON
+========================================= */
+/* 
+.moon {
+  position: absolute;
+
+  width: 19px;
+  height: 19px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      #d9ffff,
+      #6cefff 45%,
+      #00bcd4
+    );
+
+  box-shadow:
+    0 0 8px rgba(0, 246, 255, 0.85),
+    0 0 15px rgba(0, 246, 255, 0.3);
+
+  transition:
+    transform 0.65s ease,
+    opacity 0.5s ease;
+}
+
+
+.moon-cut {
+  position: absolute;
+
+  width: 17px;
+  height: 17px;
+
+  top: -4px;
+  left: 6px;
+
+  border-radius: 50%;
+
+  background: #050915;
+}
+
+
+.is-light .moon {
+  transform:
+    scale(0)
+    rotate(-180deg);
+
+  opacity: 0;
+} */
+
+
+/* =========================================
+   SUN
+========================================= */
+/* 
+.sun {
+  position: absolute;
+
+  width: 19px;
+  height: 19px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+
+  transform:
+    scale(0)
+    rotate(-180deg);
+
+  transition:
+    transform 0.8s cubic-bezier(
+      0.68,
+      -0.4,
+      0.265,
+      1.4
+    ),
+    opacity 0.5s ease;
+}
+
+
+.is-light .sun {
+  opacity: 1;
+
+  transform:
+    scale(1)
+    rotate(0deg);
+} */
+
+
+/* =========================================
+   SUN CORE
+========================================= */
+/* 
+.sun-core {
+  width: 13px;
+  height: 13px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #fffbd0,
+      #ffd43b 55%,
+      #ff9d00
+    );
+
+  box-shadow:
+    0 0 7px #ffd43b,
+    0 0 14px rgba(255, 174, 0, 0.7);
+} */
+
+
+/* =========================================
+   SUN RAYS
+========================================= */
+
+/* .sun-ray {
+  position: absolute;
+
+  width: 2px;
+  height: 5px;
+
+  border-radius: 2px;
+
+  background: #ffb000;
+
+  box-shadow:
+    0 0 4px #ffb000;
+}
+
+
+.ray-1 {
+  top: 0;
+  left: 8px;
+}
+
+
+.ray-2 {
+  bottom: 0;
+  left: 8px;
+}
+
+
+.ray-3 {
+  left: 0;
+  top: 8px;
+
+  transform: rotate(90deg);
+}
+
+
+.ray-4 {
+  right: 0;
+  top: 8px;
+
+  transform: rotate(90deg);
+}
+ */
+
+/* =========================================
+   ENERGY RING
+========================================= */
+
+/* .energy-ring {
+  position: absolute;
+
+  width: 25px;
+  height: 25px;
+
+  left: 8px;
+  top: 8px;
+
+  border-radius: 50%;
+
+  border: 1px solid transparent;
+
+  border-top-color: #00f6ff;
+  border-right-color: #ff1493;
+
+  opacity: 0.55;
+
+  z-index: 3;
+
+  transition:
+    transform 1s ease,
+    left 1s ease,
+    border-color 0.8s ease;
+}
+
+
+.is-light .energy-ring {
+  left: 44px;
+
+  transform: rotate(360deg);
+
+  border-top-color: #ffb000;
+  border-right-color: #00d9ff;
+
+  opacity: 0.8;
+} */
+
+
+/* =========================================
+   PARTICLES
+========================================= */
+/* 
+.particle {
+  position: absolute;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: #00f6ff;
+
+  opacity: 0;
+
+  z-index: 2;
+
+  transition:
+    transform 0.8s ease,
+    opacity 0.5s ease;
+}
+
+
+.particle-1 {
+  left: 17px;
+  top: 9px;
+}
+
+
+.particle-2 {
+  left: 22px;
+  bottom: 8px;
+}
+
+
+.particle-3 {
+  left: 35px;
+  top: 7px;
+}
+
+
+.particle-4 {
+  left: 40px;
+  bottom: 7px;
+}
+
+
+.is-dark .particle {
+  opacity: 0.45;
+}
+
+
+.is-light .particle {
+  background: #ffb000;
+
+  opacity: 0.55;
+
+  transform:
+    translateX(18px)
+    scale(1.25);
+} */
+
+
+/* =========================================
+   STARS
+========================================= */
+
+/* .star {
+  position: absolute;
+
+  color: #8fffff;
+
+  font-size: 8px;
+
+  z-index: 1;
+
+  transition:
+    transform 0.8s ease,
+    opacity 0.5s ease,
+    color 0.5s ease;
+}
+
+
+.star-1 {
+  right: 12px;
+  top: 8px;
+}
+
+
+.star-2 {
+  right: 19px;
+  bottom: 7px;
+}
+
+
+.is-light .star {
+  color: #ffb000;
+
+  transform:
+    translateX(-8px)
+    rotate(180deg);
+
+  opacity: 0.35;
+} */
+
+
+/* =========================================
+   CLICK EFFECT
+========================================= */
+/* 
+.theme-toggle:active .energy-ring {
+  animation:
+    energyBurst 0.7s ease;
+}
+
+
+.theme-toggle:active .particle {
+  animation:
+    particleBurst 0.7s ease;
+}
+
+
+@keyframes energyBurst {
+
+  0% {
+    transform:
+      scale(1)
+      rotate(0deg);
+  }
+
+  50% {
+    transform:
+      scale(1.45)
+      rotate(180deg);
+  }
+
+  100% {
+    transform:
+      scale(1)
+      rotate(360deg);
+  }
+} */
+
+
+/* @keyframes particleBurst {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform:
+      scale(2)
+      translateX(8px);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+} */
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+/* .theme-toggle:hover .toggle-track {
+  box-shadow:
+    0 0 12px rgba(0, 246, 255, 0.35),
+    0 0 22px rgba(255, 20, 147, 0.15);
+} */
+
+
+/* =========================================
+   FOCUS
+========================================= */
+/* 
+.theme-toggle:focus-visible {
+  outline:
+    2px solid #00f6ff;
+
+  outline-offset: 4px;
+
+  border-radius: 999px;
+} */
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+/* @media (max-width: 700px) {
+
+  .theme-toggle {
+    width: 66px;
+    height: 36px;
+  }
+
+  .celestial {
+    top: 6px;
+    left: 6px;
+
+    width: 24px;
+    height: 24px;
+  }
+
+  .is-light .celestial {
+    transform:
+      translateX(30px)
+      rotate(360deg);
+  }
+
+  .energy-ring {
+    width: 22px;
+    height: 22px;
+
+    left: 7px;
+    top: 7px;
+  }
+
+  .is-light .energy-ring {
+    left: 37px;
+  }
+} */

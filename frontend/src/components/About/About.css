@@ -1,0 +1,944 @@
+/* =====================================================
+   ABOUT SECTION
+   ===================================================== */
+
+.about {
+  position: relative;
+
+  min-height: 100vh;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 120px 8%;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(17, 24, 33, 0.92),
+      rgba(4, 6, 9, 0.98) 75%
+    );
+
+  color: #ffffff;
+
+  isolation: isolate;
+}
+
+/* =====================================================
+   BACKGROUND STARS
+   ===================================================== */
+
+.about-stars {
+  position: absolute;
+
+  inset: -10%;
+
+  pointer-events: none;
+
+  background-repeat: repeat;
+
+  z-index: -3;
+}
+
+.about-stars-one {
+  opacity: 0.35;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.8) 1px,
+      transparent 1.5px
+    );
+
+  background-size: 90px 90px;
+
+  animation:
+    aboutStarsOne 45s linear infinite;
+}
+
+.about-stars-two {
+  opacity: 0.2;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(125, 255, 210, 0.8) 1px,
+      transparent 2px
+    );
+
+  background-size: 170px 170px;
+
+  animation:
+    aboutStarsTwo 65s linear infinite;
+}
+
+/* =====================================================
+   HEADING
+   ===================================================== */
+
+.about-heading {
+  position: relative;
+
+  z-index: 2;
+
+  text-align: center;
+
+  margin-bottom: 65px;
+}
+
+.about-label {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #7dffd2;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 5px;
+
+  text-shadow:
+    0 0 12px
+    rgba(125, 255, 210, 0.7);
+}
+
+.about-heading h2 {
+  margin: 0;
+
+  font-size: clamp(38px, 5vw, 70px);
+
+  line-height: 1.05;
+
+  font-weight: 800;
+
+  letter-spacing: -2px;
+
+  color: #ffffff;
+}
+
+.about-heading h2 span {
+  background:
+    linear-gradient(
+      100deg,
+      #7dffd2,
+      #67f3e8,
+      #ff4fa3
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  filter:
+    drop-shadow(
+      0 0 12px
+      rgba(125, 255, 210, 0.15)
+    );
+}
+
+.about-heading p {
+  margin-top: 18px;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  font-size: 14px;
+
+  letter-spacing: 0.5px;
+}
+
+/* =====================================================
+   MAIN CONTAINER
+   ===================================================== */
+
+.about-container {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    0.85fr 1.15fr;
+
+  align-items: center;
+
+  gap: 70px;
+}
+
+/* =====================================================
+   CENTRAL VISUAL
+   ===================================================== */
+
+.about-visual {
+  position: relative;
+
+  width: min(430px, 100%);
+
+  aspect-ratio: 1;
+
+  margin: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transform:
+    perspective(900px)
+    rotateX(
+      calc(var(--mouse-y, 0) * -2deg)
+    )
+    rotateY(
+      calc(var(--mouse-x, 0) * 2deg)
+    );
+
+  transition:
+    transform 0.5s ease;
+}
+
+/* =====================================================
+   ORBIT RINGS
+   ===================================================== */
+
+.about-orbit {
+  position: absolute;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(125, 255, 210, 0.2);
+
+  box-shadow:
+    0 0 20px
+    rgba(125, 255, 210, 0.04);
+
+  animation:
+    aboutOrbit 18s linear infinite;
+}
+
+.orbit-a {
+  inset: 5%;
+
+  transform:
+    rotateX(65deg)
+    rotateZ(15deg);
+}
+
+.orbit-b {
+  inset: 17%;
+
+  border-color:
+    rgba(255, 79, 163, 0.22);
+
+  transform:
+    rotateY(65deg)
+    rotateZ(-20deg);
+
+  animation-duration: 13s;
+
+  animation-direction: reverse;
+}
+
+.orbit-c {
+  inset: 30%;
+
+  border-color:
+    rgba(103, 243, 232, 0.18);
+
+  transform:
+    rotateX(65deg)
+    rotateY(35deg);
+
+  animation-duration: 10s;
+}
+
+/* =====================================================
+   CORE
+   ===================================================== */
+
+.about-core {
+  position: relative;
+
+  width: 155px;
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle,
+      #030506 0 48%,
+      #07120f 62%,
+      #000000 75%
+    );
+
+  border:
+    1px solid
+    rgba(125, 255, 210, 0.35);
+
+  box-shadow:
+    0 0 25px
+    rgba(125, 255, 210, 0.2),
+
+    0 0 65px
+    rgba(125, 255, 210, 0.1),
+
+    inset 0 0 35px
+    rgba(0, 0, 0, 1);
+
+  z-index: 5;
+
+  animation:
+    coreFloat 5s ease-in-out infinite;
+}
+
+.about-core::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -18px;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent,
+      rgba(125, 255, 210, 0.7),
+      rgba(255, 79, 163, 0.65),
+      transparent
+    );
+
+  filter:
+    blur(8px);
+
+  opacity: 0.55;
+
+  z-index: -1;
+
+  animation:
+    coreGlowSpin 5s linear infinite;
+}
+
+.about-core::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -4px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(255, 79, 163, 0.35);
+
+  box-shadow:
+    0 0 15px
+    rgba(255, 79, 163, 0.25);
+
+  animation:
+    corePulse 3s ease-in-out infinite;
+}
+
+.core-letter {
+  position: relative;
+
+  color: #ffffff;
+
+  font-size: 70px;
+
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #7dffd2,
+      #67f3e8
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  filter:
+    drop-shadow(
+      0 0 12px
+      rgba(125, 255, 210, 0.5)
+    );
+
+  z-index: 2;
+}
+
+/* =====================================================
+   ORBITING DOTS
+   ===================================================== */
+
+.about-orbit-dot {
+  position: absolute;
+
+  width: 9px;
+
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #7dffd2;
+
+  box-shadow:
+    0 0 8px #7dffd2,
+    0 0 22px
+    rgba(125, 255, 210, 0.9);
+
+  z-index: 8;
+}
+
+.dot-one {
+  top: 7%;
+
+  left: 22%;
+
+  animation:
+    dotOne 6s linear infinite;
+}
+
+.dot-two {
+  right: 10%;
+
+  top: 35%;
+
+  background: #ff4fa3;
+
+  box-shadow:
+    0 0 8px #ff4fa3,
+    0 0 22px
+    rgba(255, 79, 163, 0.9);
+
+  animation:
+    dotTwo 7s linear infinite;
+}
+
+.dot-three {
+  bottom: 12%;
+
+  left: 27%;
+
+  background: #67f3e8;
+
+  box-shadow:
+    0 0 8px #67f3e8,
+    0 0 22px
+    rgba(103, 243, 232, 0.9);
+
+  animation:
+    dotThree 8s linear infinite;
+}
+
+/* =====================================================
+   INFORMATION CARDS
+   ===================================================== */
+
+.about-cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 20px;
+
+  perspective: 1000px;
+}
+
+.about-card {
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+
+  position: relative;
+
+  min-height: 220px;
+
+  padding: 30px;
+
+  border:
+    1px solid
+    rgba(125, 255, 210, 0.12);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(125, 255, 210, 0.055),
+      rgba(255, 79, 163, 0.025)
+    );
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  transform:
+    perspective(800px)
+    rotateX(var(--rotate-x))
+    rotateY(var(--rotate-y))
+    translateZ(0);
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform 0.15s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+
+  overflow: hidden;
+
+  cursor: default;
+}
+
+.about-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -100%;
+
+  left: -30%;
+
+  width: 160%;
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 35%,
+      rgba(125, 255, 210, 0.08) 50%,
+      transparent 65%
+    );
+
+  transform:
+    rotate(8deg);
+
+  transition:
+    top 0.6s ease;
+
+  pointer-events: none;
+}
+
+.about-card:hover::before {
+  top: 100%;
+}
+
+.about-card:hover {
+  border-color:
+    rgba(125, 255, 210, 0.4);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(125, 255, 210, 0.09),
+      rgba(255, 79, 163, 0.055)
+    );
+
+  box-shadow:
+    0 15px 45px
+    rgba(0, 0, 0, 0.35),
+
+    0 0 25px
+    rgba(125, 255, 210, 0.1),
+
+    inset 0 0 20px
+    rgba(125, 255, 210, 0.025);
+}
+
+.about-card:nth-child(3) {
+  grid-column:
+    1 / -1;
+
+  min-height: 180px;
+}
+
+/* =====================================================
+   CARD CONTENT
+   ===================================================== */
+
+.about-card-number {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: #7dffd2;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-shadow:
+    0 0 10px
+    rgba(125, 255, 210, 0.5);
+}
+
+.about-card h3 {
+  position: relative;
+
+  margin: 0 0 12px;
+
+  color: #ffffff;
+
+  font-size: 22px;
+
+  font-weight: 700;
+
+  transform:
+    translateZ(20px);
+
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.about-card:hover h3 {
+  color: #7dffd2;
+
+  text-shadow:
+    0 0 12px
+    rgba(125, 255, 210, 0.35);
+}
+
+.about-card p {
+  position: relative;
+
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  transform:
+    translateZ(15px);
+}
+
+/* =====================================================
+   BOTTOM LINE
+   ===================================================== */
+
+.about-bottom-line {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 70px;
+
+  opacity: 0.4;
+}
+
+.about-bottom-line span {
+  width: 70px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      #7dffd2
+    );
+}
+
+.about-bottom-line span:last-child {
+  background:
+    linear-gradient(
+      to left,
+      transparent,
+      #ff4fa3
+    );
+}
+
+.about-bottom-line p {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 8px;
+
+  letter-spacing: 4px;
+}
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+
+@keyframes aboutStarsOne {
+  from {
+    background-position:
+      0 0;
+  }
+
+  to {
+    background-position:
+      100px 120px;
+  }
+}
+
+@keyframes aboutStarsTwo {
+  from {
+    background-position:
+      0 0;
+  }
+
+  to {
+    background-position:
+      -140px 180px;
+  }
+}
+
+@keyframes aboutOrbit {
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+@keyframes coreFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-10px);
+  }
+}
+
+@keyframes coreGlowSpin {
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+@keyframes corePulse {
+  0%,
+  100% {
+    opacity: 0.3;
+
+    transform:
+      scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+
+    transform:
+      scale(1.08);
+  }
+}
+
+@keyframes dotOne {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(15px);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(15px);
+  }
+}
+
+@keyframes dotTwo {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(18px);
+  }
+
+  to {
+    transform:
+      rotate(-360deg)
+      translateX(18px);
+  }
+}
+
+@keyframes dotThree {
+  from {
+    transform:
+      rotate(0deg)
+      translateX(14px);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(14px);
+  }
+}
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 1000px) {
+
+  .about {
+    padding:
+      110px 5%;
+  }
+
+  .about-container {
+    grid-template-columns:
+      1fr;
+
+    gap: 50px;
+  }
+
+  .about-visual {
+    width: min(380px, 75vw);
+  }
+
+  .about-cards {
+    max-width: 750px;
+
+    width: 100%;
+
+    margin: 0 auto;
+  }
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+  .about {
+    padding:
+      100px 20px 80px;
+  }
+
+  .about-heading {
+    margin-bottom: 45px;
+  }
+
+  .about-heading h2 {
+    font-size: 38px;
+  }
+
+  .about-heading p {
+    font-size: 13px;
+  }
+
+  .about-visual {
+    width: 300px;
+  }
+
+  .about-core {
+    width: 110px;
+  }
+
+  .core-letter {
+    font-size: 50px;
+  }
+
+  .about-cards {
+    grid-template-columns:
+      1fr;
+  }
+
+  .about-card {
+    min-height: auto;
+
+    padding: 25px;
+  }
+
+  .about-card:nth-child(3) {
+    grid-column: auto;
+
+    min-height: auto;
+  }
+
+  .about-card h3 {
+    font-size: 20px;
+  }
+
+  .about-card p {
+    font-size: 13px;
+  }
+
+  .about-bottom-line {
+    margin-top: 45px;
+  }
+}
+
+/* =====================================================
+   REDUCED MOTION
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .about *,
+  .about *::before,
+  .about *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}

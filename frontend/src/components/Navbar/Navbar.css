@@ -1,0 +1,461 @@
+/* ========================================= 
+   NAVBAR 
+========================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 90px;
+
+  z-index: 1000;
+
+  background: rgba(3, 7, 12, 0.88);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(103, 10, 252, 0.08);
+
+  transition: background 0.4s ease;
+}
+
+
+/* ========================================= 
+   NAVBAR CONTAINER 
+========================================= */
+
+.navbar-container {
+  width: min(1400px, 92%);
+  height: 100%;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* ========================================= 
+   LOGO 
+========================================= */
+
+.navbar-logo {
+  width: 62px;
+  height: 62px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(0, 255, 225, 0.5);
+
+  background: rgba(5, 10, 18, 0.8);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 800;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.06);
+
+  border-color: #00ffe1;
+
+  box-shadow:
+    0 0 10px rgba(0, 255, 225, 0.55),
+    0 0 25px rgba(0, 255, 225, 0.25),
+    0 0 40px rgba(255, 50, 180, 0.15);
+}
+
+
+/* ========================================= 
+   LOGO COLORS 
+========================================= */
+
+.logo-green {
+  color: #8aff00;
+}
+
+.logo-cyan {
+  color: #00ffe1;
+}
+
+.logo-pink {
+  color: #ff3cac;
+}
+
+
+/* ========================================= 
+   NAVIGATION 
+========================================= */
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+/* ========================================= 
+   NAVIGATION ITEM 
+========================================= */
+
+.navbar-link {
+  position: relative;
+  isolation: isolate;
+
+  border: 1px solid transparent;
+  outline: none;
+
+  background: transparent;
+
+  color: #dce3eb;
+
+  padding: 13px 21px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  /* IMPORTANT:
+     Keeps the glow INSIDE the button */
+  overflow: hidden;
+
+  transition:
+    color 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.4s ease,
+    transform 0.3s ease;
+}
+
+
+/* ========================================= 
+   KEEP TEXT ABOVE INTERNAL GLOW
+========================================= */
+
+.navbar-link span {
+  position: relative;
+  z-index: 3;
+}
+
+
+/* ========================================= 
+   INTERNAL CYAN LIGHT
+========================================= */
+
+.navbar-link::before {
+  content: "";
+
+  position: absolute;
+  inset: 1px;
+  border-radius: 9px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 217, 181, 0.20) 0%,
+      rgba(0, 217, 181, 0.12) 35%,
+      rgba(0, 180, 150, 0.07) 60%,
+      transparent 100%
+    );
+
+  opacity: 0;
+  transform: scale(0.75);
+  filter: blur(4px);
+
+  z-index: 1;
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s ease;
+}
+
+/* ========================================= 
+   INTERNAL PINK/CYAN LIGHT
+========================================= */
+
+.navbar-link::after {
+  content: "";
+
+  position: absolute;
+  width: 70px;
+  height: 70px;
+
+  top: 50%;
+  right: 5%;
+
+  transform: translateY(-50%);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 217, 181, 0.12) 0%,
+      rgba(0, 217, 181, 0.05) 40%,
+      transparent 75%
+    );
+
+  filter: blur(10px);
+  opacity: 0;
+
+  z-index: 1;
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s ease;
+}
+
+/* ========================================= 
+   HOVER BOX
+========================================= */
+
+.navbar-link:hover {
+  color: #ffffff;
+
+  transform: translateY(-1px);
+
+  background: rgba(0, 217, 181, 0.025);
+
+  border-color: rgba(0, 217, 181, 0.95);
+
+  box-shadow:
+    0 0 5px rgba(0, 217, 181, 0.15),
+
+    inset 0 0 6px rgba(0, 217, 181, 0.22),
+    inset 0 0 15px rgba(0, 217, 181, 0.12),
+    inset 0 0 28px rgba(0, 217, 181, 0.06);
+
+  text-shadow:
+    0 0 6px rgba(0, 217, 181, 0.35);
+}
+
+/* ========================================= 
+   ACTIVATE INTERNAL CYAN LIGHT
+========================================= */
+
+.navbar-link:hover::before {
+  opacity: 1;
+
+  transform: scale(1.15);
+
+  animation: internalCyanPulse 1.8s ease-in-out infinite;
+}
+
+
+/* ========================================= 
+   ACTIVATE INTERNAL PINK LIGHT
+========================================= */
+
+.navbar-link:hover::after {
+  opacity: 1;
+
+  transform:
+    translateY(-50%)
+    translateX(-8px);
+
+  animation: internalPinkPulse 2.2s ease-in-out infinite;
+}
+
+
+/* ========================================= 
+   INTERNAL CYAN PULSE
+========================================= */
+
+@keyframes internalCyanPulse {
+
+  0% {
+    opacity: 0.45;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  100% {
+    opacity: 0.45;
+    transform: scale(0.92);
+  }
+}
+
+
+/* ========================================= 
+   INTERNAL PINK PULSE
+========================================= */
+
+@keyframes internalPinkPulse {
+
+  0% {
+    opacity: 0.20;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+
+  100% {
+    opacity: 0.20;
+  }
+}
+
+
+/* ========================================= 
+   CLICK
+========================================= */
+
+.navbar-link:active {
+  transform: scale(0.95);
+}
+
+
+/* ========================================= 
+   REMOVE DEFAULT FOCUS BOX
+========================================= */
+
+.navbar-link:focus {
+  outline: none;
+}
+
+
+/* ========================================= 
+   KEYBOARD NAVIGATION
+========================================= */
+
+.navbar-link:focus-visible {
+  border-color: rgba(0, 217, 181, 0.85);
+
+  box-shadow:
+    inset 0 0 10px rgba(0, 217, 181, 0.25);
+}
+
+
+/* ========================================= 
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    height: 78px;
+  }
+
+  .navbar-container {
+    width: 94%;
+  }
+
+  .navbar-logo {
+    width: 52px;
+    height: 52px;
+
+    font-size: 16px;
+  }
+
+  .navbar-menu {
+    gap: 6px;
+  }
+
+  .navbar-link {
+    padding: 11px 13px;
+
+    font-size: 12px;
+  }
+}
+
+
+/* ========================================= 
+   SMALL TABLET
+========================================= */
+
+@media (max-width: 700px) {
+
+  .navbar {
+    height: auto;
+    min-height: 75px;
+  }
+
+  .navbar-container {
+    padding: 10px 0;
+
+    justify-content: center;
+  }
+
+  .navbar-logo {
+    display: none;
+  }
+
+  .navbar-menu {
+    width: 100%;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+  }
+
+  .navbar-link {
+    padding: 9px 11px;
+
+    font-size: 11px;
+
+    letter-spacing: 0.05em;
+  }
+}
+
+
+/* ========================================= 
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .navbar-container {
+    padding: 8px 0;
+  }
+
+  .navbar-menu {
+    gap: 3px;
+  }
+
+  .navbar-link {
+    padding: 8px 7px;
+
+    font-size: 9px;
+
+    letter-spacing: 0.02em;
+
+    border-radius: 8px;
+  }
+
+  .navbar-link::before {
+    filter: blur(3px);
+  }
+
+  .navbar-link:hover::before {
+    filter: blur(4px);
+  }
+}

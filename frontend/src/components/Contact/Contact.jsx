@@ -147,7 +147,7 @@ function Contact() {
           <p>
             Whether it's a project, collaboration,
             opportunity or just a conversation,
-            feel free to reach out.
+            feel free to reach out .
           </p>
 
           {/* Social links */}

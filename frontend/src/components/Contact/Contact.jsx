@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./Contact.css";
 
@@ -8,6 +9,12 @@ function Contact() {
     reason: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState({
+    type: "",
+    message: "",
+  });
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -15,27 +22,74 @@ function Contact() {
       ...previous,
       [name]: value,
     }));
+
+    // Clear previous feedback when the user edits the form
+    if (feedback.message) {
+      setFeedback({ type: "", message: "" });
+    }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log("Contact form submitted:", formData);
+    if (isSubmitting) return;
 
-    // Backend API connection will be added later.
+    setIsSubmitting(true);
+    setFeedback({ type: "", message: "" });
 
-    setFormData({
-      name: "",
-      mobile: "",
-      reason: "",
-    });
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name.trim(),
+            mobile: formData.mobile.trim(),
+            reason: formData.reason.trim(),
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          data.message || "Failed to send your message."
+        );
+      }
+
+      setFeedback({
+        type: "success",
+        message: "Message transmitted successfully! Thank you for reaching out.",
+      });
+
+      setFormData({
+        name: "",
+        mobile: "",
+        reason: "",
+      });
+
+    } catch (error) {
+      console.error("Contact submission error:", error);
+
+      setFeedback({
+        type: "error",
+        message:
+          error.message ||
+          "Unable to connect to the server. Please try again.",
+      });
+
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section
-      className="contact"
-      id="contact"
-    >
+    <section className="contact" id="contact">
+
       {/* Background */}
       <div
         className="contact-background"
@@ -165,7 +219,7 @@ function Contact() {
 
               <div className="form-status">
                 <span></span>
-                ONLINE
+                {isSubmitting ? "SENDING" : "ONLINE"}
               </div>
 
             </div>
@@ -184,6 +238,7 @@ function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Enter your name"
+                maxLength={100}
                 required
               />
 
@@ -203,6 +258,7 @@ function Contact() {
                 value={formData.mobile}
                 onChange={handleChange}
                 placeholder="Enter your mobile number"
+                maxLength={20}
                 required
               />
 
@@ -222,6 +278,7 @@ function Contact() {
                 onChange={handleChange}
                 placeholder="Tell me what you would like to discuss..."
                 rows="5"
+                maxLength={2000}
                 required
               ></textarea>
 
@@ -231,15 +288,29 @@ function Contact() {
             <button
               type="submit"
               className="contact-submit"
+              disabled={isSubmitting}
             >
               <span>
-                SEND TRANSMISSION
+                {isSubmitting
+                  ? "TRANSMITTING..."
+                  : "SEND TRANSMISSION"}
               </span>
 
               <span className="submit-arrow">
                 ↗
               </span>
             </button>
+
+            {/* API response message */}
+            {feedback.message && (
+              <p
+                className={`contact-feedback ${feedback.type}`}
+                role="status"
+                aria-live="polite"
+              >
+                {feedback.message}
+              </p>
+            )}
 
           </form>
 

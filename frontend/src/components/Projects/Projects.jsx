@@ -207,10 +207,14 @@ function Projects() {
               <a
                 href={project.link}
                 className="project-link"
+                target ="_blank"
+                rel="noopener noreferrer"
                 onClick={(event) => {
-                  if (project.link === "#") {
-                    event.preventDefault();
-                  }
+                event.stopPropagation();
+                if (!project.link || project.link === "#") {
+                event.preventDefault();
+                 return;
+                }
                 }}
               >
                 <span>

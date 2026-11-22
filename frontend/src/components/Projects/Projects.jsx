@@ -50,7 +50,7 @@ function Projects() {
         "CSS",
         "Node.js",
       ],
-      link: "#",
+      link: "https://github.com/RudraNarayanPanda/current_portfolio",
     },
 
     {

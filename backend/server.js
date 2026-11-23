@@ -8,16 +8,17 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-// Import database connection
 const db = require("./config/db");
-
-// Import contact routes
 const contactRoutes = require("./routes/contactRoutes");
 
-app.use(cors());
+// Middleware
+app.use(cors({
+  origin: process.env.FRONTEND_URL
+}));
+
 app.use(express.json());
 
-// Health check API
+// Health check
 app.get("/", (req, res) => {
   res.json({
     message: "Rudra Portfolio Backend is running!"
@@ -28,12 +29,14 @@ app.get("/", (req, res) => {
 app.use("/api/contact", contactRoutes);
 
 // Start server
-app.listen(PORT, async () => {
-  console.log(`Backend running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", async () => {
+  console.log(`Backend running on port ${PORT}`);
 
   try {
     const connection = await db.getConnection();
+
     console.log("MySQL Database Connected Successfully!");
+
     connection.release();
   } catch (error) {
     console.error("MySQL Connection Failed:", error.message);

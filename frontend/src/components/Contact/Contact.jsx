@@ -10,6 +10,7 @@ function Contact() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [feedback, setFeedback] = useState({
     type: "",
     message: "",
@@ -38,8 +39,15 @@ function Contact() {
     setFeedback({ type: "", message: "" });
 
     try {
+      // Get deployed backend URL from environment variables
+      const API_URL = import.meta.env.VITE_API_URL;
+
+      if (!API_URL) {
+        throw new Error("Backend API URL is not configured.");
+      }
+
       const response = await fetch(
-        "http://localhost:5000/api/contact",
+        `${API_URL}/api/contact`,
         {
           method: "POST",
           headers: {
@@ -63,7 +71,8 @@ function Contact() {
 
       setFeedback({
         type: "success",
-        message: "Message transmitted successfully! Thank you for reaching out.",
+        message:
+          "Message transmitted successfully! Thank you for reaching out.",
       });
 
       setFormData({
